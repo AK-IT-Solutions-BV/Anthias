@@ -21,7 +21,7 @@ services:
         target: /run/dbus/system_bus_socket
 
   anthias-server:
-    image: screenly/anthias-server:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: horozgs/anthias-server:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.server
@@ -47,7 +47,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-viewer:
-    image: screenly/anthias-viewer:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: horozgs/anthias-viewer:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.viewer
@@ -128,7 +128,7 @@ services:
       - redis-data:/var/lib/redis
 
   anthias-nginx:
-    image: screenly/anthias-nginx:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: horozgs/anthias-nginx:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.nginx
