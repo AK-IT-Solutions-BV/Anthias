@@ -33,18 +33,17 @@
             <div class="col-12 text-center">
                 {% if ip_addresses %}
                     <p>
-                        To manage the content on this screen, just point your
-                        browser to
+                        Om de inhoud van dit scherm te beheren, brows naar
                         {% if ip_addresses|length > 1 %}
                             any of
                         {% endif %}
-                        the IP
+                        de IP
                         {% if ip_addresses|length > 1 %}
                             addresses
                         {% else %}
                             address
                         {% endif %}
-                        provided below.
+                        aangegeven beneden.
                     </p>
                     <div class="form-actions">
                         {% for ip_address in ip_addresses %}
@@ -55,7 +54,7 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    <p>Unable to retrieve IP.</p>
+                    <p>Geen IP adres gevonden.</p>
                 {% endif %}
             </div>
         </div>
