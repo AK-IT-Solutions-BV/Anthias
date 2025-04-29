@@ -29,11 +29,9 @@ ERROR_BACKOFF_TTL = (60 * 5)
 # Availability of the cached Docker Hub hash
 DOCKER_HUB_HASH_TTL = (10 * 60)
 
-# Google Analytics data
-ANALYTICS_MEASURE_ID = 'G-S3VX8HTPK7'
-ANALYTICS_API_SECRET = 'G8NcBpRIS9qBsOj3ODK8gw'
-
 DEFAULT_REQUESTS_TIMEOUT = 1  # in seconds
+
+REPO_URL = 'https://github.com/AK-IT-Solutions-BV/Anthias'
 
 
 def handle_github_error(exc, action):
@@ -69,7 +67,7 @@ def remote_branch_available(branch):
 
     try:
         resp = requests_get(
-            'https://api.github.com/repos/screenly/anthias/branches',
+            'https://api.github.com/repos/AK-IT-Solutions-BV/anthias/branches',
             headers={
                 'Accept': 'application/vnd.github.loki-preview+json',
             },
@@ -115,7 +113,7 @@ def fetch_remote_hash():
             return None, False
         try:
             resp = requests_get(
-                f'https://api.github.com/repos/screenly/anthias/git/refs/heads/{branch}',  # noqa: E501
+                f'https://api.github.com/repos/AK-IT-Solutions-BV/anthias/git/refs/heads/{branch}',  # noqa: E501
                 timeout=DEFAULT_REQUESTS_TIMEOUT
             )
             resp.raise_for_status()
@@ -139,7 +137,7 @@ def get_latest_docker_hub_hash(device_type):
     trigger Docker image builds.
     """
 
-    url = 'https://hub.docker.com/v2/namespaces/screenly/repositories/anthias-server/tags'  # noqa: E501
+    url = 'https://hub.docker.com/v2/namespaces/zortos/repositories/anthias-server/tags'  # noqa: E501
 
     cached_docker_hub_hash = r.get('latest-docker-hub-hash')
 
@@ -184,53 +182,12 @@ def is_up_to_date():
     """
 
     latest_sha, retrieved_update = fetch_remote_hash()
-    git_branch = get_git_branch()
     git_hash = get_git_hash()
     git_short_hash = get_git_short_hash()
-    get_device_id = r.get('device_id')
 
     if not latest_sha:
         logging.error('Unable to get latest version from GitHub')
         return True
-
-    if not get_device_id:
-        device_id = ''.join(
-            random.choice(string.ascii_lowercase + string.digits)
-            for _ in range(15)
-        )
-        r.set('device_id', device_id)
-    else:
-        device_id = get_device_id
-
-    if retrieved_update:
-        if not settings['analytics_opt_out'] and not is_ci():
-            ga_base_url = 'https://www.google-analytics.com/mp/collect'
-            ga_query_params = f'measurement_id={ANALYTICS_MEASURE_ID}&api_secret={ANALYTICS_API_SECRET}'  # noqa: E501
-            ga_url = f'{ga_base_url}?{ga_query_params}'
-            payload = {
-                'client_id': device_id,
-                'events': [{
-                    'name': 'version',
-                    'params': {
-                        'Branch': str(git_branch),
-                        'Hash': str(git_short_hash),
-                        'NOOBS': os.path.isfile('/boot/os_config.json'),
-                        'Balena': is_balena_app(),
-                        'Docker': is_docker(),
-                        'Pi_Version': parse_cpu_info().get('model', "Unknown")
-                        }
-                }]
-            }
-            headers = {'content-type': 'application/json'}
-
-            try:
-                requests_post(
-                    ga_url,
-                    data=json.dumps(payload),
-                    headers=headers
-                )
-            except exceptions.ConnectionError:
-                pass
 
     device_type = os.getenv('DEVICE_TYPE')
     latest_docker_hub_hash = get_latest_docker_hub_hash(device_type)
