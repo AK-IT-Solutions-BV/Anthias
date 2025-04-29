@@ -31,7 +31,7 @@ if [[ "$ENVIRONMENT" == "development" ]]; then
     ./manage.py runserver 0.0.0.0:8080
 else
     echo "Generating Django static files..."
-    ./manage.py collectstatic --clear --noinput
+    ./manage.py collectstatic --noinput
     echo "Starting Gunicorn..."
     python run_gunicorn.py
 fi
