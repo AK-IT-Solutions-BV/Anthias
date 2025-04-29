@@ -5,7 +5,7 @@
         <div class="row py-2">
             <div class="col-12">
                 <h4 class="page-header text-white">
-                    <b>Integrations</b>
+                    <b>Intergaties</b>
                 </h4>
             </div>
         </div>
@@ -18,43 +18,41 @@
                     <table class="table">
                         <thead class="table-borderless">
                         <tr>
-                            <th class="text-secondary font-weight-normal" scope="col">Option</th>
-                            <th class="text-secondary font-weight-normal" scope="col">Value</th>
-                            <th class="text-secondary font-weight-normal" scope="col">Description</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Opties</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Waarde</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Beschrijving</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <th scope="row">Device Name</th>
+                            <th scope="row">Apparaat Naam</th>
                             <td>{{ balena_device_name_at_init }}</td>
-                            <td>The name of the device on first initialisation.</td>
+                            <td>De naam van het apparaat bij eerste initialisatie.</td>
                         </tr>
                         <tr>
-                            <th scope="row">Device UUID</th>
+                            <th scope="row">Apparaat UUID</th>
                             <td>{{ balena_device_id }}</td>
-                            <td>The unique identification number for the device. This is used to identify it on
-                                balena.
-                            </td>
+                            <td>Het unieke identificatienummer voor het apparaat. Dit wordt gebruikt om het te identificeren op balena.</td>
                         </tr>
                         <tr>
                             <th scope="row">App ID</th>
                             <td>{{ balena_app_id }}</td>
-                            <td>ID number of the balena application the device is associated.</td>
+                            <td>ID nummer van de balena-applicatie waaraan het apparaat is gekoppeld.</td>
                         </tr>
                         <tr>
-                            <th scope="row">App Name</th>
+                            <th scope="row">App Naam</th>
                             <td>{{ balena_app_name }}</td>
-                            <td>The name of the balena application the device is associated with.</td>
+                            <td>De naam van de balena-applicatie waaraan het apparaat is gekoppeld.</td>
                         </tr>
                         <tr>
-                            <th scope="row">Supervisor Version</th>
+                            <th scope="row">Supervisor Versie</th>
                             <td>{{ balena_supervisor_version }}</td>
-                            <td>The current version of the supervisor agent running on the device.</td>
+                            <td>De huidige versie van de supervisor agent die op het apparaat draait.</td>
                         </tr>
                         <tr>
-                            <th scope="row">Host OS Version</th>
+                            <th scope="row">Host OS Versie</th>
                             <td>{{ balena_host_os_version }}</td>
-                            <td>The version of the host OS.</td>
+                            <td>De versie van de host OS.</td>
                         </tr>
                         </tbody>
                     </table>

@@ -3,7 +3,7 @@
 version: "2"
 services:
   anthias-wifi-connect:
-    image: screenly/anthias-wifi-connect:${GIT_SHORT_HASH}-${BOARD}
+    image: zortos/anthias-wifi-connect:latest-pi4
     depends_on:
       - anthias-viewer
     environment:
