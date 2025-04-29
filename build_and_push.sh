@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # Enable buildx
-docker buildx create --name multiarch --use || true
+docker buildx use --name multiarch --use || true
 
 # Login to Docker Hub
 docker login
+
+# First, generate the proper Dockerfiles with static file building enabled
+ENVIRONMENT=production ./bin/generate_dev_mode_dockerfiles.sh
 
 # Function to build and push an image
 build_and_push() {

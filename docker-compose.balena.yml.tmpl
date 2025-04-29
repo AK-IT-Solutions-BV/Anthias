@@ -29,6 +29,7 @@ services:
     restart: always
     volumes:
       - resin-data:/data
+      - static-files:/data/screenly/staticfiles  # Add static files volume
     labels:
       io.balena.features.supervisor-api: '1'
 
@@ -99,7 +100,9 @@ services:
     restart: always
     volumes:
       - resin-data:/data:ro
+      - static-files:/data/screenly/staticfiles:ro  # Add static files volume
 
 volumes:
   resin-data:
   redis-data:
+  static-files:  # Add this new volume
