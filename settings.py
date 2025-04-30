@@ -20,6 +20,7 @@ CONFIG_DIR = '.screenly/'
 CONFIG_FILE = 'screenly.conf'
 DEFAULTS = {
     'main': {
+        'analytics_opt_out': False,
         'assetdir': 'screenly_assets',
         'database': CONFIG_DIR + 'screenly.db',
         'date_format': 'mm/dd/yyyy',
@@ -32,22 +33,14 @@ DEFAULTS = {
     'viewer': {
         'audio_output': 'hdmi',
         'debug_logging': False,
-        'enable_offline_mode': False,
-        'verify_ssl': True,
         'default_duration': 10,
-        'default_streaming_duration': 300,
-        'use_24_hour_clock': False,
-        'use_ssl': False,
-        'user': False,
-        'password': False,
-        'auth_backend': '',
-        'default_assets': False,
+        'default_streaming_duration': '300',
         'player_name': '',
+        'resolution': '1920x1080',
         'show_splash': True,
         'shuffle_playlist': False,
-        'download_videos': False,
-        'touch_pin': None,
-        'datetime_format': None
+        'verify_ssl': True,
+        'default_assets': False
     }
 }
 CONFIGURABLE_SETTINGS = DEFAULTS['viewer'].copy()
