@@ -2,7 +2,7 @@
 
 services:
   anthias-wifi-connect:
-    image: screenly/anthias-wifi-connect:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: zortos/anthias-wifi-connect:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.wifi-connect
@@ -21,7 +21,7 @@ services:
         target: /run/dbus/system_bus_socket
 
   anthias-server:
-    image: horozgs/anthias-server:latest-pi4
+    image: zortos/anthias-server:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.server
@@ -47,7 +47,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-viewer:
-    image: horozgs/anthias-viewer:latest-pi4
+    image: zortos/anthias-viewer:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.viewer
@@ -75,7 +75,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-websocket:
-    image: screenly/anthias-websocket:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: zortos/anthias-websocket:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.websocket
@@ -93,7 +93,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
   anthias-celery:
-    image: screenly/anthias-celery:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: zortos/anthias-celery:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.celery
@@ -117,7 +117,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   redis:
-    image: screenly/anthias-redis:${DOCKER_TAG}-${DEVICE_TYPE}
+    image: zortos/anthias-redis:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.redis
@@ -128,7 +128,7 @@ services:
       - redis-data:/var/lib/redis
 
   anthias-nginx:
-    image: horozgs/anthias-nginx:latest-pi4
+    image: zortos/anthias-nginx:latest-pi4
     build:
       context: .
       dockerfile: docker/Dockerfile.nginx
