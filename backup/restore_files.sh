@@ -19,3 +19,7 @@ sudo cp "$BACKUP_DIR/ansible/roles/splashscreen/files/splashscreen.png" /home/ad
 sudo cp -r "$BACKUP_DIR/website/assets/images/" /home/admin/screenly/website/assets/
 
 echo "Alle bestanden zijn succesvol gekopieerd met sudo."
+
+cd /home/admin/screenly
+./bin/upgrade_container.sh
+echo "Container is succesvol geüpgraded."
