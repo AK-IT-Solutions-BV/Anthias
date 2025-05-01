@@ -21,5 +21,5 @@ sudo cp -r "$BACKUP_DIR/website/assets/images/" /home/admin/screenly/website/ass
 echo "Alle bestanden zijn succesvol gekopieerd met sudo."
 
 cd /home/admin/screenly
-./bin/upgrade_container.sh
+./bin/upgrade_containers.sh
 echo "Container is succesvol geüpgraded."

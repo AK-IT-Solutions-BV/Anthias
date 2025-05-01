@@ -62,6 +62,7 @@ De volgende bestanden en mappen worden overschreven of toegevoegd:
 2. Open een terminal op de Pi:
    ```bash
    cd /home/admin
+   chmod +x backup/restore_files.sh
    ./backup/restore_files.sh
    ```
 
