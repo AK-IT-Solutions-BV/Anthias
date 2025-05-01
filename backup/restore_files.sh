@@ -18,7 +18,7 @@ sudo cp "$BACKUP_DIR/staticfiles/sass/_custom-bootstrap.scss" /home/admin/screen
 sudo cp "$BACKUP_DIR/ansible/roles/splashscreen/files/splashscreen.png" /home/admin/screenly/ansible/roles/splashscreen/files/splashscreen.png
 sudo cp -r "$BACKUP_DIR/website/assets/images/" /home/admin/screenly/website/assets/
 
-echo "Alle bestanden zijn succesvol gekopieerd met sudo."
+echo "Alle bestanden zijn succesvol gekopieerd."
 
 cd /home/admin/screenly
 ./bin/upgrade_containers.sh
