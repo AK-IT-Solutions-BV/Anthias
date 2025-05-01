@@ -1,0 +1,64 @@
+{# vim: ft=htmldjango #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8"/>
+    <title>Welcome to Anthias</title>
+    <link href="{% static 'dist/css/anthias.css' %}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Plus Jakarta Sans" rel="stylesheet">
+    <link rel="icon" href="/static/favicons/favicon.ico">
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body class="splash container d-table">
+<div class="col-12 d-table-cell align-middle">
+    <div class="row">
+        <div class="col-12">
+            <div
+                class="logo-container page-header d-flex flex-nowrap
+                    justify-content-center align-items-center"
+            >
+                <img src="/static/img/logo-full-splash.svg" alt="splash-logo" class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+    <div class="splash-body p-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                {% if ip_addresses %}
+                    <p>
+                        Om de inhoud van dit scherm te beheren, brows naar
+                        {% if ip_addresses|length > 1 %}
+                            any of
+                        {% endif %}
+                        de IP
+                        {% if ip_addresses|length > 1 %}
+                            addresses
+                        {% else %}
+                            address
+                        {% endif %}
+                        aangegeven beneden.
+                    </p>
+                    <div class="form-actions">
+                        {% for ip_address in ip_addresses %}
+                            <a href="{{ ip_address }}">{{ ip_address }}</a>
+                            {% if not loop.last %}
+                                <br/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>Geen IP adres gevonden.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

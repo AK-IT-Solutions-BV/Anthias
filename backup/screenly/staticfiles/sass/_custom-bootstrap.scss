@@ -1,0 +1,9 @@
+@import "variables";
+
+$theme-colors: (
+  "primary": #0CAFCA,
+  "dark": #0051ac,
+);
+
+@import "root";
+@import "bootstrap";
