@@ -58,8 +58,14 @@ De volgende bestanden en mappen worden overschreven of toegevoegd:
 
 ## 🔄 Restore script gebruiken (na stap 3)
 
-1. Zorg dat de `backup` map staat in `/home/admin/`
-2. Open een terminal op de Pi:
+1. Log in bij Docker Hub met username en password via command line:
+   ```bash
+   docker login -u JOUW_USERNAME
+   ```
+   Vervang `JOUW_USERNAME` met je Docker Hub gegevens. Voer daarna je wachtwoord in.
+
+2. Zorg dat de `backup` map staat in `/home/admin/`
+3. Open een terminal op de Pi:
    ```bash
    cd /home/admin
    chmod +x backup/restore_files.sh

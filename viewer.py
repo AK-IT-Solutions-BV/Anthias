@@ -53,7 +53,7 @@ __copyright__ = "Copyright 2012-2024, Screenly, Inc"
 __license__ = "Dual License: GPLv2 and Commercial License"
 
 
-SPLASH_DELAY = 60  # secs
+SPLASH_DELAY = 10  # secs
 EMPTY_PL_DELAY = 5  # secs
 
 INITIALIZED_FILE = '/.screenly/initialized'
