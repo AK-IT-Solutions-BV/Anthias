@@ -17,7 +17,7 @@ build_and_push() {
     echo "Building and pushing $imagename with tag $tag..."
     docker buildx build --platform linux/arm64/v8,linux/arm/v8 \
         -f "$dockerfile" \
-        -t "zortos/$imagename:$tag" \
+        -t "aksolutions/$imagename:$tag" \
         --no-cache \
         --push .
 }

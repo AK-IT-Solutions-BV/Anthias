@@ -21,7 +21,7 @@ services:
         target: /run/dbus/system_bus_socket
 
   anthias-server:
-    image: zortos/anthias-server:latest-arm
+    image: aksolutions/anthias-server:latest-arm
     build:
       context: .
       dockerfile: docker/Dockerfile.server
@@ -75,7 +75,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-websocket:
-    image: zortos/anthias-websocket:latest-arm
+    image: aksolutions/anthias-websocket:latest-arm
     build:
       context: .
       dockerfile: docker/Dockerfile.websocket
@@ -128,7 +128,7 @@ services:
       - redis-data:/var/lib/redis
 
   anthias-nginx:
-    image: zortos/anthias-nginx:latest-arm
+    image: aksolutions/anthias-nginx:latest-arm
     build:
       context: .
       dockerfile: docker/Dockerfile.nginx

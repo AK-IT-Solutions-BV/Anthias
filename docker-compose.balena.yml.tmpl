@@ -3,7 +3,7 @@
 version: "2"
 services:
   anthias-wifi-connect:
-    image: zortos/anthias-wifi-connect:latest-pi4
+    image: aksolutions/anthias-wifi-connect:latest-pi4
     depends_on:
       - anthias-viewer
     environment:
@@ -18,7 +18,7 @@ services:
       io.balena.features.firmware: "1"
 
   anthias-server:
-    image: zortos/anthias-server:latest-pi4
+    image: aksolutions/anthias-server:latest-pi4
     environment:
       - HOME=/data
       - LISTEN=0.0.0.0
@@ -34,7 +34,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-viewer:
-    image: zortos/anthias-viewer:latest-pi4
+    image: aksolutions/anthias-viewer:latest-pi4
     depends_on:
       - anthias-server
     environment:
@@ -53,7 +53,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-websocket:
-    image: zortos/anthias-websocket:latest-pi4
+    image: aksolutions/anthias-websocket:latest-pi4
     depends_on:
       - anthias-server
     environment:
@@ -64,7 +64,7 @@ services:
       - resin-data:/data
 
   anthias-celery:
-    image: zortos/anthias-celery:latest-pi4
+    image: aksolutions/anthias-celery:latest-pi4
     depends_on:
       - anthias-server
       - redis
@@ -81,7 +81,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   redis:
-    image: zortos/anthias-redis:latest-pi4
+    image: aksolutions/anthias-redis:latest-pi4
     ports:
       - 127.0.0.1:6379:6379
     restart: always
@@ -89,7 +89,7 @@ services:
       - redis-data:/var/lib/redis
 
   anthias-nginx:
-    image: zortos/anthias-nginx:latest-pi4
+    image: aksolutions/anthias-nginx:latest-pi4
     ports:
       - 80:80
     environment:

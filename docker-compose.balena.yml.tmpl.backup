@@ -18,7 +18,7 @@ services:
       io.balena.features.firmware: "1"
 
   anthias-server:
-    image: horozgs/anthias-server:latest-pi4
+    image: aksolutions/anthias-server:latest-pi4
     environment:
       - HOME=/data
       - LISTEN=0.0.0.0
@@ -33,7 +33,7 @@ services:
       io.balena.features.supervisor-api: '1'
 
   anthias-viewer:
-    image: horozgs/anthias-viewer:latest-pi4
+    image: aksolutions/anthias-viewer:latest-pi4
     depends_on:
       - anthias-server
     environment:
@@ -88,7 +88,7 @@ services:
       - redis-data:/var/lib/redis
 
   anthias-nginx:
-    image: horozgs/anthias-nginx:latest-pi4
+    image: aksolutions/anthias-nginx:latest-pi4
     ports:
       - 80:80
     environment:
