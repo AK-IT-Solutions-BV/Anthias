@@ -74,6 +74,11 @@ De volgende bestanden en mappen worden overschreven of toegevoegd:
 
 > Het script plaatst alle bestanden automatisch op de juiste plek.
 
+4. Log uit bij Docker Hub:
+   ```bash
+   docker logout
+   ```
+
 ---
 
 ### 4. Deactiveer de Raspberry Pi rainbow splash screen
