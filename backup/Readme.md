@@ -82,7 +82,7 @@ De volgende bestanden en mappen worden overschreven of toegevoegd:
 ---
 
 ### 4. Deactiveer de Raspberry Pi rainbow splash screen
-Om de Raspberry Pi rainbow splash screen te deactiveren, voeg de volgende regel toe aan `/boot/config.txt`:
+Om de Raspberry Pi rainbow splash screen te deactiveren, voeg de volgende regel toe aan `/boot/(firmware)/config.txt`:
 
 ```bash
 disable_splash=1
