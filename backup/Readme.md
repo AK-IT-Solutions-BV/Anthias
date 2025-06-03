@@ -18,7 +18,8 @@ Voer onderstaande command uit op je Pi:
 bash <(curl -sL https://install-anthias.srly.io)
 ```
 
-Beantwoord de installatievragen allemaal met `yes`.
+geef een release tag op: `v0.19.6`.
+Beantwoord de rest allemaal met `yes`.
 
 ---
 
